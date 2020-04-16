@@ -15,4 +15,3 @@ class Book(models.Model):
     def __str__(self):
         return f'"{self.title}", {self.author}'
 
-# book = Book(title="Język C++ Szkoła Programowania", authors=["Stephen Prata"], year=2013, publisher="Helion", genre="Science", edition=6)
