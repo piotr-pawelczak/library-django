@@ -2,3 +2,4 @@
 .idea
 library_django/library_django/__pycache__/
 library_django/library/__pycache__/
+library_django/library/migrations/__pycache__/
