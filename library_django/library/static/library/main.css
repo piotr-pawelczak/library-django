@@ -4,18 +4,50 @@ h1, h2, h3, h4, h5, h6{
 
 article{
     margin-top: 100px;
+    width: 80%
 }
 
-#news-container{
-    width: 80%;
+article h1 {
+    text-align: left;
 }
+
+article div small {
+    font-size: 15px;
+}
+
 .news-title{
-    min-height: 80px;
-    color: #ffffff;
-    background-color: #000099;
+    min-height: 50px;
 }
 
 .publish-info{
-    min-height: 15px;
-    color: #47476b;
+    min-height: 50px
+}
+
+.news-img{
+    min-height: 100px
+}
+
+header {
+    background: #007bff;
+}
+
+header div {
+    text-align: center;
+}
+
+header div img {
+    width: 70%;
+    margin: 10px;
+}
+
+article {
+    width: 100%;
+}
+
+article img {
+    width: 100%;
+}
+
+.news_content {
+    margin-top: 30px;
 }
