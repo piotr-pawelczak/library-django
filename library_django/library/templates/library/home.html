@@ -2,57 +2,30 @@
 {% load static %}
 
 {% block main %}
-    <article class="mx-auto">
-        <div class="news-title my-3">
-            <h1>New title here</h1>
-        </div>
-        <div class="publish-info my-3">
-            <small>Published by Author on 12 Feb 2020 13:55</small>
-        </div>
-        <div class="row mt-3">
-            <div class="col-xl-6">
-                <img src="{% static 'library/images/news.jpg'%}" alt="news image" class="news-img mr-3">
+    {% for article, content in articles %}
+        <article class="mx-auto">
+            <div class="news-title my-3">
+                <h1>{{ article.title }}</h1>
+            </div>
+            <div class="publish-info my-3">
+                <small>Published by {{ article.author }} on {{ article.date_posted }}</small>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xl-6">
+                    <img src="{{ article.image }}" alt="news image" class="news-img mr-3">
+                </div>
+
+                <div class="news_content col-xl-6">
+                    <h4>{{ article.description }}</h4>
+                    <p>{{ content }}</p>
+                    {% if content|length > 500 %}
+                        <h5>read more</h5>
+                    {% endif %}
+                </div>
             </div>
 
-            <div class="news_content col-xl-6">
-                <h4>Subtitle of the article/Short description of news</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-                <h5>read more</h5>
-            </div>
-        </div>
-
-    </article>
-
-    <article class="mx-auto">
-        <div class="news-title my-3">
-            <h1>New title here</h1>
-        </div>
-        <div class="publish-info my-3">
-            <small>Published by Author on 12 Feb 2020 13:55</small>
-        </div>
-        <div class="row mt-3">
-            <div class="col-xl-6">
-                <img src="{% static 'library/images/news.jpg'%}" alt="news image" class="news-img mr-3">
-            </div>
-
-            <div class="news_content col-xl-6">
-                <h4>Subtitle of the article/Short description of news</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-                <h5>read more</h5>
-            </div>
-        </div>
-
-    </article>
+        </article>
+    {% endfor %}
 {% endblock main %}
 
 {% block side %}

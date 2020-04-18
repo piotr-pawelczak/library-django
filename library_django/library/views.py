@@ -1,8 +1,15 @@
 from django.shortcuts import render
+from .models import Article
 
 
 def home(request):
-    return render(request, 'library/home.html')
+    context = {'articles': []}
+    for article in Article.objects.all():
+        content = article.content
+        if len(content) > 500:
+            content = article.content[0:500] + "..."
+        context['articles'].append((article, content))
+    return render(request, 'library/home.html', context)
 
 
 def books(request):
