@@ -1,10 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Home</h1>
-</body>
-</html>
+{% extends "library/base.html" %}
+
+{% block main %}
+    <article class="mx-auto">
+        <div class="news-title bg-success my-3">
+            <h1>New Title Here</h1>
+        </div>
+        <div class="publish-info bg-warning my-3">
+            <h3>Published by Author on 12 Feb 2020 13:55</h3>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <img src="{{ news.image }}" alt="news image" class="news-img mr-3">
+            </div>
+            <div class="col-md-6">
+                <h4>Subtitle of the article/Short description of news</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+                <h5>read more</h5>
+            </div>
+        </div>
+
+    </article>
+    <article class="mx-auto">
+        <div class="news-title bg-success my-3">
+            <h1>New Title Here</h1>
+        </div>
+        <div class="publish-info bg-warning my-3">
+            <h3>Published by Author on 12 Feb 2020 13:55</h3>
+        </div>
+        <div class="media mt-3">
+            <img src="{{ news.image }}" alt="news image" class="news-img align-self-center mr-3">
+            <div class="media-body">
+                <h4>Subtitle of the article/Short description of news</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+                <h5>read more</h5>
+            </div>
+        </div>
+
+    </article>
+{% endblock main %}
+
+{% block side %}
+    <p>Side home</p>
+{% endblock side %}
