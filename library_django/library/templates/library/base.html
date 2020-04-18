@@ -15,8 +15,8 @@
     </head>
     <body>
         <header>
-            <div class="container" style="height: 100px">
-                <p>[optional] tu mozna dac grafike [optional]</p>
+            <div class="container">
+                <img src="{% static 'library/images/logo.png' %}">
             </div>
         </header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-primary sticky-top">
@@ -38,12 +38,12 @@
 
         <main>
             <div class="row m-0">
-                <div class="col-md-9" style="min-height: 1000px; background: red">
+                <div class="col-md-9" style="min-height: 1000px;">
                     <div class="container">
                         {% block main %}{% endblock main %}
                     </div>
                 </div>
-                <div class="col-md-3" style="min-height: 1000px; background: green">
+                <div class="col-md-3" style="min-height: 1000px; background: #dddddd">
                     <div class="container">
                         {% block side %}{% endblock side %}
                     </div>
