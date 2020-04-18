@@ -1,52 +1,55 @@
 {% extends "library/base.html" %}
 
 {% block main %}
-    <article class="mx-auto">
-        <div class="news-title bg-success my-3">
-            <h1>New Title Here</h1>
-        </div>
-        <div class="publish-info bg-warning my-3">
-            <h3>Published by Author on 12 Feb 2020 13:55</h3>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-6">
-                <img src="{{ news.image }}" alt="news image" class="news-img mr-3">
+    <div id="news-container" class="container mx-auto">
+        <article class="container-fluid mx-auto border border-dark rounded">
+            <div class="row news-title">
+                <h1 class="m-auto">The Library will be closed to readers until further notice</h1>
             </div>
-            <div class="col-md-6">
-                <h4>Subtitle of the article/Short description of news</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-                <h5>read more</h5>
+            <div class="row publish-info py-2 pl-3 border-bottom border-dark">
+                <i class="my-auto">Published by Author on 12 Feb 2020 13:55</i>
             </div>
-        </div>
+            <div class="row mt-2">
+                <div class="col-lg-6">
+                    <img src="{{ news.image }}" alt="news image" class="mr-3">
+                </div>
+                <div class="col-lg-6">
+                    <h4>Subtitle of the article/Short description of news</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua.</p>
+                    <h5>read more</h5>
+                </div>
+            </div>
+        </article>
 
-    </article>
-    <article class="mx-auto">
-        <div class="news-title bg-success my-3">
-            <h1>New Title Here</h1>
-        </div>
-        <div class="publish-info bg-warning my-3">
-            <h3>Published by Author on 12 Feb 2020 13:55</h3>
-        </div>
-        <div class="media mt-3">
-            <img src="{{ news.image }}" alt="news image" class="news-img align-self-center mr-3">
-            <div class="media-body">
-                <h4>Subtitle of the article/Short description of news</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-                <h5>read more</h5>
+        <article class="mx-auto">
+            <div class="news-title bg-success my-3">
+                <h1>New Title Here</h1>
             </div>
-        </div>
-
-    </article>
+            <div class="publish-info bg-warning my-3">
+                <h3>Published by Author on 12 Feb 2020 13:55</h3>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-6">
+                    <img src="{{ news.image }}" alt="news image" class="mr-3">
+                </div>
+                <div class="col-lg-6">
+                    <h4>Subtitle of the article/Short description of news</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua.</p>
+                    <h5>read more</h5>
+                </div>
+            </div>
+        </article>
+    </div>
 {% endblock main %}
 
 {% block side %}
