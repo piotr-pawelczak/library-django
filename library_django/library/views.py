@@ -3,12 +3,17 @@ from .models import Article
 
 
 def home(request):
-    context = {'articles': []}
+
+    articles = []
+
     for article in Article.objects.all():
         content = article.content
         if len(content) > 500:
             content = article.content[0:500] + "..."
-        context['articles'].append((article, content))
+        articles.append((article, content))
+
+    context = {'articles': articles}
+
     return render(request, 'library/home.html', context)
 
 

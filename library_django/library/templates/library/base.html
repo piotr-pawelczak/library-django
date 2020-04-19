@@ -37,17 +37,8 @@
         </nav>
 
         <main>
-            <div class="row m-0">
-                <div class="col-md-9" style="min-height: 1000px;">
-                    <div class="container">
-                        {% block main %}{% endblock main %}
-                    </div>
-                </div>
-                <div class="col-md-3" style="min-height: 1000px; background: #dddddd">
-                    <div class="container">
-                        {% block side %}{% endblock side %}
-                    </div>
-                </div>
+            <div class="mx-auto container">
+                {% block main %}{% endblock main %}
             </div>
         </main>
 
