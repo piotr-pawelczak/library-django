@@ -54,3 +54,14 @@ article {
 article img {
     width: 100%;
 }
+
+form button {
+    background: #007bff;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#register-header {
+    margin-top: 20px;
+}
