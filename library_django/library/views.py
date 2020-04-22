@@ -29,10 +29,6 @@ def login(request):
     return render(request, 'library/login.html')
 
 
-def register(request):
-    return render(request, 'library/register.html')
-
-
 def contact(request):
     return render(request, 'library/contact.html')
 
