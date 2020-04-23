@@ -19,19 +19,25 @@
                 <img src="{% static 'library/images/logo.png' %}">
             </div>
         </header>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-primary sticky-top">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-primary sticky-top border-top border-white">
             <a class="navbar-brand" href="{% url 'library-home' %}">Library Django</a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarMenu">
-                <ul class="navbar-nav">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarMenu">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href="{% url 'library-home' %}"> Home </a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'library-books' %}"> Books </a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'library-about' %}"> About us </a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"> Login </a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}"> Register </a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'library-contact' %}"> Contact </a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"> Logout </a></li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"> Login </a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}"> Register </a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
