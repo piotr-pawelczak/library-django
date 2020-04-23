@@ -4,9 +4,8 @@ h1, h2, h3, h4, h5, h6{
 
 article{
     width: 80%;
-    margin: 50px;
     text-align: justify;
-    margin-bottom: 0;
+    margin: 50px 50px 0;
 }
 
 article img{
@@ -64,4 +63,16 @@ form button {
 
 #register-header {
     margin-top: 20px;
+}
+
+form{
+    max-width: 500px;
+}
+
+.button-div{
+    text-align: center;
+}
+
+main{
+    min-height: 400px;
 }

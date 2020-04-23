@@ -124,3 +124,7 @@ STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
+# setting redirecting logged user to home page instead of /account/user
+LOGIN_REDIRECT_URL = 'blog-home'
+# setting login route insted of account/login which is default
+LOGIN_URL = 'login'
