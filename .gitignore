@@ -3,4 +3,5 @@ library_django/.idea/
 library_django/library_django/__pycache__/
 library_django/library/__pycache__/
 library_django/library/migrations/__pycache__/
-
+library_django/users/__pycache__/
+library_django/users/migrations/__pycache__/

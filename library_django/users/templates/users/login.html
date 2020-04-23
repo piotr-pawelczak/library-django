@@ -1,19 +1,17 @@
 {% extends "library/base.html" %}
-{% load static %}
 
 {% block main %}
     {% load crispy_forms_filters %}
-    <h1 id="register-header">Register in our Library.</h1>
-    <h3>It's only few steps!</h3>
     <form method="POST" class="form-group border border-secondary rounded p-4 mx-auto my-5">
+        <h3>Sign In</h3>
         {% csrf_token %}
         {{ form|crispy }}
         <small>
-            Already have an account?
-            <a href="{% url 'login' %}">Sign in</a>
+            Don't have account yet?
+            <a href="{% url 'register' %}">Sign up</a>
         </small>
-        <div class="button-div">it regit
-            <button type="submit">Create an account</button>
+        <div class="button-div">
+            <button type="submit">Log In</button>
         </div>
     </form>
 {% endblock main %}

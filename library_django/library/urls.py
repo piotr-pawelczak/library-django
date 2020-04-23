@@ -5,6 +5,5 @@ urlpatterns = [
     path('', views.home, name="library-home"),
     path('books/', views.books, name="library-books"),
     path('about/', views.about, name="library-about"),
-    path('login/', views.login, name="library-login"),
     path('contact/', views.contact, name="library-contact"),
 ]

@@ -8,7 +8,7 @@ def register(response):
         form = RegisterForm(response.POST)
         if form.is_valid():
             form.save()
-        return redirect('../')
+            return redirect('library-login')
     else:
         form = RegisterForm()
 
@@ -17,3 +17,4 @@ def register(response):
     }
 
     return render(response, 'users/register.html', context)
+
