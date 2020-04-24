@@ -34,9 +34,10 @@
 }
 
 h2 {
+    text-align: center;
     margin: 20px 0;
     transition: 1s;
-    transform: translateX(100px);
+    transform: translateX(10px);
     opacity: 0;
 }
 
