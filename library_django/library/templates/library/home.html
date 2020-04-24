@@ -8,8 +8,9 @@
             <div class="home-content">
                 <h1>Library Django</h1>
                 <h3>Join us today.</h3>
-                <div class="header-field"> <a href="{% url 'login' %}"> Log in <i class="fa fa-sign-in" aria-hidden="true"></i> </a> </div>
-                <div class="header-field"> <a href="{% url 'register' %}"> Register </a> </div>
+                <div class="header-field"><a href="{% url 'login' %}"> Log in <i class="fa fa-sign-in"
+                                                                                 aria-hidden="true"></i> </a></div>
+                <div class="header-field"><a href="{% url 'register' %}"> Register </a></div>
             </div>
         </div>
         <div class="overlay"></div>
@@ -19,27 +20,27 @@
 
 
 {% block main %}
-    {% for article, content in articles %}
-        <article class="mx-auto">
-            <div class="news-title my-3">
-                <h1>{{ article.title }}</h1>
-            </div>
-            <div class="publish-info my-3">
-                <small>Published by {{ article.author }} on {{ article.date_posted }}</small>
-            </div>
-            <div class="row mt-3">
-                <div class="col-lg-3 col-md-5">
-                    <img src="{{ article.image }}" alt="news image" class="news-img mr-3">
-                </div>
 
-                <div class="news_content col-lg-9 col-md-7">
-                    <h4>{{ article.description }}</h4>
-                    <p>{{ content }}</p>
-                    {% if content|length > 500 %}
-                        <h5>read more</h5>
-                    {% endif %}
-                </div>
+    <h1>NEWS</h1>
+
+    {% for article, content in articles %}
+        <article class="news-card col-12">
+            <div class="news-img">
+                <img src="{{ article.image }}" alt="news image">
             </div>
+            <div class="news-container">
+                <div class="news-info">
+                    <span>Published by {{ article.author }} on {{ article.date_posted }}</span>
+                </div>
+                <h1 class="news-title">{{ article.title }}</h1>
+
+                <p class="news-content">{{ content }}</p>
+                {% if content|length > 500 %}
+                    <a href="#" class="news-read-more">Read more</a>
+                {% endif %}
+            </div>
+        <div style="clear: both;"></div>
+
 
         </article>
     {% endfor %}
@@ -48,3 +49,23 @@
 {% block side %}
     <p>Side home</p>
 {% endblock side %}
+
+{#            <div class="news-title my-3">#}
+{#                <h1>{{ article.title }}</h1>#}
+{#            </div>#}
+{#            <div class="publish-info my-3">#}
+{#                <small>Published by {{ article.author }} on {{ article.date_posted }}</small>#}
+{#            </div>#}
+{#            <div class="row mt-3">#}
+{#                <div class="col-lg-3 col-md-5">#}
+{#                    <img src="{{ article.image }}" alt="news image" class="news-img mr-3">#}
+{#                </div>#}
+{##}
+{#                <div class="news_content col-lg-9 col-md-7">#}
+{#                    <h4>{{ article.description }}</h4>#}
+{#                    <p>{{ content }}</p>#}
+{#                    {% if content|length > 500 %}#}
+{#                        <h5>read more</h5>#}
+{#                    {% endif %}#}
+{#                </div>#}
+{#            </div>#}
