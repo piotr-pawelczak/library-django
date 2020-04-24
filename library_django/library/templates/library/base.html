@@ -15,11 +15,11 @@
     </head>
     <body>
         <header>
-            <div class="container">
-                <img src="{% static 'library/images/logo.png' %}">
-            </div>
+           {% block home-header %}
+
+           {% endblock home-header %}
         </header>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-primary sticky-top border-top border-white">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
             <a class="navbar-brand" href="{% url 'library-home' %}">Library Django</a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
                 <span class="navbar-toggler-icon"></span>

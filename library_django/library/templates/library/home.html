@@ -1,5 +1,22 @@
 {% extends "library/base.html" %}
-{% load static %}
+
+{% block home-header %}
+    {% if user.is_authenticated %}
+        <div class="invisible"></div>
+    {% else %}
+        <div class="home-header">
+            <div class="home-content">
+                <h1>Library Django</h1>
+                <h3>Join us today.</h3>
+                <div class="header-field"> <a href="{% url 'login' %}"> Log in </a> </div>
+                <div class="header-field"> <a href="{% url 'register' %}"> Register </a> </div>
+            </div>
+        </div>
+        <div class="overlay"></div>
+    {% endif %}
+
+{% endblock home-header %}
+
 
 {% block main %}
     {% for article, content in articles %}
