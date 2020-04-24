@@ -33,6 +33,20 @@
     margin: 10px 0;
 }
 
+h2 {
+    margin: 20px 0;
+}
+
+h2::before,
+h2::after{
+    display: inline-block;
+    content: "";
+    border-top: 1px solid black;
+    width: 100px;
+    margin: 0 10px;
+    transform: translateY(-10px);
+}
+
 @media screen and (min-width: 1200px) {
     .news-img {
         float: left;
