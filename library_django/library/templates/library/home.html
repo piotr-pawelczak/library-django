@@ -1,4 +1,5 @@
 {% extends "library/base.html" %}
+{% load static %}
 
 {% block home-header %}
     {% if user.is_authenticated %}
@@ -40,9 +41,15 @@
                 {% endif %}
             </div>
         <div style="clear: both;"></div>
-
-
         </article>
+
+        <script src="{% static 'library/js/scroll-out.js' %}"></script>
+        <script type="text/javascript">
+            ScrollOut({
+                targets: 'h2',
+                once: true
+            })
+        </script>
     {% endfor %}
 {% endblock main %}
 
@@ -50,22 +57,3 @@
     <p>Side home</p>
 {% endblock side %}
 
-{#            <div class="news-title my-3">#}
-{#                <h1>{{ article.title }}</h1>#}
-{#            </div>#}
-{#            <div class="publish-info my-3">#}
-{#                <small>Published by {{ article.author }} on {{ article.date_posted }}</small>#}
-{#            </div>#}
-{#            <div class="row mt-3">#}
-{#                <div class="col-lg-3 col-md-5">#}
-{#                    <img src="{{ article.image }}" alt="news image" class="news-img mr-3">#}
-{#                </div>#}
-{##}
-{#                <div class="news_content col-lg-9 col-md-7">#}
-{#                    <h4>{{ article.description }}</h4>#}
-{#                    <p>{{ content }}</p>#}
-{#                    {% if content|length > 500 %}#}
-{#                        <h5>read more</h5>#}
-{#                    {% endif %}#}
-{#                </div>#}
-{#            </div>#}

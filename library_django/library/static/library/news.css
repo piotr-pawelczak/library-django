@@ -35,6 +35,15 @@
 
 h2 {
     margin: 20px 0;
+    transition: 1s;
+    transform: translateX(100px);
+    opacity: 0;
+}
+
+h2[data-scroll="in"]{
+    transform: translateX(0);
+    transition-delay: 0.8s;
+    opacity: 1;
 }
 
 h2::before,
