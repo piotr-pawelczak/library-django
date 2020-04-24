@@ -1,6 +1,12 @@
 {% extends "library/base.html" %}
 
 {% block main %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success form-message">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
     {% load crispy_forms_filters %}
     <form method="POST" class="form-group border border-secondary rounded p-4 mx-auto my-5">
         <h3>Sign In</h3>
