@@ -25,10 +25,6 @@ def about(request):
     return render(request, 'library/about.html')
 
 
-def login(request):
-    return render(request, 'library/login.html')
-
-
 def contact(request):
     return render(request, 'library/contact.html')
 

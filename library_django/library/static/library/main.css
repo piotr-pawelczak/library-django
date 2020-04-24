@@ -59,6 +59,15 @@ form button {
     color: #ffffff;
     padding: 10px;
     font-size: 20px;
+    border: none;
+    round-clip: 10px;
+    border-radius: 5px;
+    min-width: 200px;
+    margin-top: 10px;
+}
+form button:hover{
+    background: #118cff;
+    cursor: pointer;
 }
 
 #register-header {

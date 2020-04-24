@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 LOGIN_REDIRECT_URL = 'library-home'
 # setting login route insted of account/login which is default
 LOGIN_URL = 'login'
+
+RECAPTCHA_PUBLIC_KEY = '6LcLeu0UAAAAAPwucFhtkEvQ2BBWUJpiRdaHHN-J'
+RECAPTCHA_PRIVATE_KEY = '6LcLeu0UAAAAAEpvBW7n91vCghmAyoAwlGMzfJHc'
+
