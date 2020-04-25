@@ -8,8 +8,18 @@ class RegisterForm(UserCreationForm):
     email = forms.EmailField()
     name = forms.CharField()
     surname = forms.CharField()
-    captcha = ReCaptchaField()
+    street = forms.CharField()
+    city = forms.CharField()
+    post_code = forms.CharField()
+    phone_number = forms.IntegerField()
+    country = forms.CharField()
+    birth_date = forms.DateField()
+    profile_picture = forms.ImageField(required=False)
+    pesel = forms.IntegerField()
+    rules_agreement = forms.BooleanField(label='I have read and agree to the Terms and Conditions and Privacy Policy ')
 
     class Meta:
         model = User
-        fields = ["username","name","surname", "email", "password1", "password2"]
+        fields = ["username", 'name', 'email', 'surname', 'street', 'city', 'post_code', 'phone_number', 'country',
+                  'birth_date', 'profile_picture', 'pesel', 'rules_agreement', "password1", "password2"]
+
