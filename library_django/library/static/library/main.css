@@ -1,4 +1,6 @@
-
+body {
+    font-family: 'Roboto', sans-serif;
+}
 
 .home-header {
     height: 100vh;
@@ -19,7 +21,7 @@
     opacity: 75%;
 }
 
-.home-content{
+.home-content {
     top: 35vh;
     position: relative;
     margin: auto;
@@ -29,7 +31,7 @@
     font-weight: 600;
 }
 
-.home-content h3{
+.home-content h3 {
     font-weight: 100;
 }
 
@@ -53,10 +55,51 @@
     text-align: center;
 }
 
-.header-field:hover{
+.header-field:hover {
     background: rgba(255, 255, 255, 0.1);
     transition: background-color 300ms;
 
+}
+
+.box {
+    z-index: 2;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.box span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+
+.box span:nth-child(2){
+    animation-delay: -.2s;
+}
+
+.box span:nth-child(3){
+    animation-delay: -.4s;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
 }
 
 header div {
@@ -75,7 +118,8 @@ form button {
     min-width: 200px;
     margin-top: 10px;
 }
-form button:hover{
+
+form button:hover {
     background: #118cff;
     cursor: pointer;
 }
@@ -84,14 +128,14 @@ form button:hover{
     margin-top: 20px;
 }
 
-form{
+form {
     max-width: 500px;
 }
 
-.button-div{
+.button-div {
     text-align: center;
 }
 
-main{
+main {
     min-height: 400px;
 }
