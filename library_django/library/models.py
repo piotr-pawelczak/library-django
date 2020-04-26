@@ -21,8 +21,8 @@ class Article(models.Model):
     title = models.CharField(max_length=100)
     author = models.ForeignKey(User, limit_choices_to={'is_staff': True}, on_delete=models.CASCADE)
     date_posted = models.DateTimeField(default=timezone.now)
-    content = models.CharField(max_length=2000)
-    image = models.ImageField(default='static/library/images/news.jpg', upload_to='static/library/images')
+    content = models.TextField(max_length=2000)
+    image = models.ImageField(default='static/library/images/news.jpg', upload_to='static/library/images/articles')
 
     def __str__(self):
         return self.title
