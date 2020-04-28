@@ -16,10 +16,9 @@ class Profile(models.Model):
     phone_number = models.CharField(max_length=9, default='')
     country = models.CharField(max_length=10, default='')
     birth_date = models.DateField(default=datetime.date.today)
-    profile_picture = models.ImageField(default='static/library/images/news.jpg', upload_to='static/library/images/profile_pictures')
+    profile_picture = models.ImageField(default='profile_pictures/default_profile_pic.png', upload_to='profile_pictures')
     rules_agreement = models.BooleanField(default=False)
     pesel = models.IntegerField(default=0)
-
 
     def __str__(self):
         return f"{self.user.username} profile"

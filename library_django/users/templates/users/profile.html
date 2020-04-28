@@ -1,0 +1,97 @@
+{% extends "library/base.html" %}
+
+{% block main %}
+    {% load crispy_forms_filters %}
+    <div class="profile-container col-12 mx-auto my-4">
+        <article class="profile-head mx-auto my-4">
+            <h1 class="profile-title">{{ user.username }}'s Profile </h1>
+            <div class="profile-img-div my-3">
+                <img class="profile-img center" src="{{ user.profile.profile_picture.url }}" alt="profile picture unavailable">
+            </div>
+        </article>
+
+        <!-- The Modal -->
+        <div class="modal" id="modalArticle">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Update Profile</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ user_update_form|crispy }}
+                            {{ profile_update_form|crispy }}
+                            <input type="submit">
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalArticle" style="width: 100%;">
+            Update your profile <i class="fa fa-plus" aria-hidden="true" style="font-size: 12px;"></i>
+        </button>
+
+        <div class="profile-menu my-4">
+            <button class="dropdown-btn">Information
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <p> Name </p>
+                <p> Surname </p>
+                <p> email </p>
+            </div>
+            <button class="dropdown-btn">Borrowed Books
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <p> Book1 </p>
+                <p> Book2 </p>
+                <p> Book3 </p>
+            </div>
+            <button class="dropdown-btn">Wish list
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <p> Book1 </p>
+                <p> Book2 </p>
+                <p> Book3 </p>
+            </div>
+            <button class="dropdown-btn">Settings
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <p> or statistics</p>
+                <p> delete if useless</p>
+            </div>
+        </div>
+    </div>
+
+<script>
+    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+      if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+      } else {
+      dropdownContent.style.display = "block";
+      }
+      });
+    }
+</script>
+
+{% endblock main %}

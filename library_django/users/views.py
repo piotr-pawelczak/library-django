@@ -1,8 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from .forms import RegisterForm
+from .forms import RegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login, authenticate
 
 
 def register(response):
@@ -20,7 +19,8 @@ def register(response):
             user.profile.phone_number = form.cleaned_data.get('phone_number')
             user.profile.country = form.cleaned_data.get('country')
             user.profile.birth_date = form.cleaned_data.get('birth_date')
-            user.profile.profile_picture = form.cleaned_data.get('profile_picture')
+            if form.cleaned_data.get('profile_picture'):
+                user.profile.profile_picture = form.cleaned_data.get('profile_picture')
             user.profile.rules_agreement = form.cleaned_data.get('rules_agreement')
             user.profile.pesel = form.cleaned_data.get('pesel')
             user.profile.email = form.cleaned_data.get('email')
@@ -41,8 +41,22 @@ def register(response):
     return render(response, 'users/register.html', context)
 
 
-# @login_required
-# def profile(request):
-#     # TODO
-#     #  replace it with update form
-#     return render(request, 'users/profile.html')
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        user_update_form = UserUpdateForm(request.POST, instance=request.user)
+        profile_update_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        if user_update_form.is_valid() and profile_update_form.is_valid():
+            user_update_form.save()
+            profile_update_form.save()
+            username = user_update_form.cleaned_data.get('username')
+            messages.success(request, f"profile upgraded for {username}")
+            return redirect('profile')
+    else:
+        user_update_form = UserUpdateForm(instance=request.user)
+        profile_update_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {'user_update_form': user_update_form,
+               'profile_update_form': profile_update_form}
+
+    return render(request, 'users/profile.html', context)

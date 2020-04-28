@@ -1,0 +1,32 @@
+{% extends "library/base.html" %}
+{% load static %}
+
+{% block main %}
+    <article class="news-card col-12">
+        <div class="news-img">
+            <img src="{{ article.image.url }}" alt="news image">
+        </div>
+        <div class="news-container">
+            <div class="news-info">
+                <span>Published by <a href="{% url 'profile' %}">{{ article.author }}</a> on {{ article.date_posted }}</span>
+            </div>
+            <h1 class="news-title">{{ article.title }}</h1>
+
+            <p class="news-content">{{ article.content|linebreaks }}</p>
+        </div>
+        <div style="clear: both;"></div>
+    </article>
+
+    <script src="{% static 'library/js/scroll-out.js' %}"></script>
+    <script type="text/javascript">
+        ScrollOut({
+            targets: '.news-card',
+            once: true
+        })
+    </script>
+{% endblock main %}
+
+{% block side %}
+    <p>Side home</p>
+{% endblock side %}
+

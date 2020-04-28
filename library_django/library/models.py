@@ -22,7 +22,7 @@ class Article(models.Model):
     author = models.ForeignKey(User, limit_choices_to={'is_staff': True}, on_delete=models.CASCADE)
     date_posted = models.DateTimeField(default=timezone.now)
     content = models.TextField(max_length=2000)
-    image = models.ImageField(default='static/library/images/news.jpg', upload_to='static/library/images/articles')
+    image = models.ImageField(default='articles/news.jpg', upload_to='articles')
 
     def __str__(self):
         return self.title

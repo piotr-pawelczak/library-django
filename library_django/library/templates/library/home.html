@@ -67,17 +67,17 @@
     {% for article, content in articles %}
         <article class="news-card col-12">
             <div class="news-img">
-                <img src="{{ article.image }}" alt="news image">
+                <img src="{{ article.image.url }}" alt="news image">
             </div>
             <div class="news-container">
                 <div class="news-info">
-                    <span>Published by {{ article.author }} on {{ article.date_posted }}</span>
+                    <span>Published by <a href="#">{{ article.author }}</a> on {{ article.date_posted }}</span>
                 </div>
                 <h1 class="news-title">{{ article.title }}</h1>
 
                 <p class="news-content">{{ content|linebreaks }}</p>
                 {% if content|length > 500 %}
-                    <a href="#" class="news-read-more">Read more</a>
+                    <a href=" {% url 'article-detail' article.id %}" class="news-read-more">Read more</a>
                 {% endif %}
             </div>
             <div style="clear: both;"></div>

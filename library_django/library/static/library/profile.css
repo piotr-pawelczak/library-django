@@ -1,0 +1,55 @@
+.profile-title{
+    text-align: center;
+}
+
+.profile-container{
+    max-width: 500px;
+}
+
+.profile-head{
+    border: 1px solid #302f2a;
+    border-radius: 10px;
+}
+
+.profile-img-div{
+    text-align: center;
+}
+
+.profile-img{
+    width: 40%;
+    height: auto;
+}
+
+.profile-menu{
+    height: 80%;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    margin: auto
+}
+
+.profile-menu .dropdown-btn, .profile-menu p {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+.profile-menu .dropdown-btn:hover, .profile-menu p {
+    color: #f1f1f1;
+}
+
+.dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+}
