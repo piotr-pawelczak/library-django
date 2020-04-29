@@ -2,12 +2,6 @@
 {% load static %}
 
 {% block main %}
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-success form-message">{{ message }}</div>
-        {% endfor %}
-    {% endif %}
-
     {% load crispy_forms_filters %}
     <form method="POST" class="form-group border border-secondary rounded p-4 mx-auto my-5">
         <h3>Add new article</h3>
@@ -15,7 +9,12 @@
         {{ form|crispy }}
         <div style="text-align: center">
             <input class="btn btn-success btn-lg mr-4" type="submit" value="Save">
-            <a class="btn btn-danger btn-lg ml-4" href="{% url 'library-home' %}" role="button">Cancel</a>
+            {% if object %}
+                <a class="btn btn-danger btn-lg ml-4" href="{% url 'article-detail' object.id %}" role="button">Cancel</a>
+            {% else %}
+                <a class="btn btn-danger btn-lg ml-4" href="{% url 'library-home' %}" role="button">Cancel</a>
+            {% endif %}
+
         </div>
     </form>
 {% endblock main %}
