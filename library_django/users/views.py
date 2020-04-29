@@ -2,6 +2,8 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from .forms import RegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView
+from .models import Profile
 
 
 def register(response):
@@ -60,3 +62,12 @@ def profile(request):
                'profile_update_form': profile_update_form}
 
     return render(request, 'users/profile.html', context)
+
+
+# to redirect to user articles after clicking on username on home page
+class AuthorListView(ListView):
+    model = Profile
+    template_name = 'users/author.html'
+    context_object_name = 'author'
+    # TODO
+    #  finish it

@@ -6,6 +6,10 @@
         <div class="news-img">
             <img src="{{ article.image.url }}" alt="news image">
         </div>
+        {% if user.is_staff%}
+            <button type="button" class="btn btn-lg btn-outline-secondary m-2">Update</button>
+            <button type="button" class="btn btn-lg btn-outline-danger m-2">Delete</button>
+        {% endif %}
         <div class="news-container">
             <div class="news-info">
                 <span>Published by <a href="{% url 'profile' %}">{{ article.author }}</a> on {{ article.date_posted }}</span>
