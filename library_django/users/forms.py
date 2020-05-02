@@ -28,8 +28,9 @@ class RegisterForm(UserCreationForm):
     birth_date = forms.DateField()
     profile_picture = forms.ImageField(required=False)
     pesel = forms.CharField(validators=[RegexValidator(regex=re.compile(r'^\d{11}$'), message='Enter valid pesel')])
-    rules_agreement = forms.BooleanField(label=mark_safe('I have read and agree to the <a href="#">Terms and '
-                                                         'Conditions</a> and <a href="#">Privacy Policy</a>'))
+    rules_agreement = forms.BooleanField(label=mark_safe('I have read and agree to the <a href="/agreement" '
+                                                         'target="_blank">Terms and Conditions</a> and <a '
+                                                         'href="/privacy-policy" target="_blank">Privacy Policy</a>'))
 
     class Meta:
         model = User

@@ -19,7 +19,7 @@
         {% endif %}
         <div class="news-container">
             <div class="news-info">
-                <span>Published by <a href="{% url 'profile' %}">{{ article.author }}</a> on {{ article.date_posted }}</span>
+                <span>Published by <a href="{% url 'author-detail' article.author.id %}">{{ article.author.user.username }}</a> on {{ article.date_posted }}</span>
             </div>
             <h1 class="news-title">{{ article.title }}</h1>
 
