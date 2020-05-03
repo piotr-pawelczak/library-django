@@ -54,7 +54,6 @@ class ArticleUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
 
     def form_valid(self, form):
         form.instance.author = Profile.objects.filter(user=self.request.user).first()
-
         return super().form_valid(form)
 
 
