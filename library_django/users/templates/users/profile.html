@@ -52,7 +52,7 @@
                 <li> Address: {{ profile.street }} {{ profile.post_code }} {{ profile.city }} {{ profile.country }}</li>
                 <li> Email: {{ profile.email }} </li>
                 <li> Phone number: {{ profile.phone_number }}</li>
-                <li> Birth date: {{ profile.birth_date }}</li>
+                <li> Birth date: {{ profile.birth_date|date:"d m y" }}</li>
             </ul>
             <button id="profile-books-button" class="btn-secondary btn-block">Borrowed Books
                 <i class="fa fa-caret-down"></i>
