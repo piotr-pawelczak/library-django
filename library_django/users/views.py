@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from .forms import RegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
+from .models import Profile
 
 
 def register(response):
@@ -56,8 +57,10 @@ def profile(request):
         user_update_form = UserUpdateForm(instance=request.user)
         profile_update_form = ProfileUpdateForm(instance=request.user.profile)
 
+    profile = Profile.objects.filter(user=request.user).first()
     context = {'user_update_form': user_update_form,
-               'profile_update_form': profile_update_form}
+               'profile_update_form': profile_update_form,
+               'profile': profile}
 
     return render(request, 'users/profile.html', context)
 

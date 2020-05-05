@@ -4,9 +4,9 @@
     {% load crispy_forms_filters %}
     <div class="profile-container col-12 mx-auto my-4">
         <article class="profile-head mx-auto my-4">
-            <h1 class="profile-title">{{ user.username }}'s Profile </h1>
+            <h1 class="profile-title">{{ profile.user.username }}'s Profile </h1>
             <div class="profile-img-div my-3">
-                <img class="profile-img center" src="{{ user.profile.profile_picture.url }}" alt="profile picture unavailable">
+                <img class="profile-img center" src="{{ profile.profile_picture.url }}" alt="profile picture unavailable">
             </div>
         </article>
 
@@ -42,56 +42,47 @@
         </button>
 
         <div class="profile-menu my-4">
-            <button class="dropdown-btn">Information
+            <button id="profile-info-button" class="btn-secondary btn-block">Information
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-container">
-                <p> Name </p>
-                <p> Surname </p>
-                <p> email </p>
-            </div>
-            <button class="dropdown-btn">Borrowed Books
+            <ul id="profile-info-list">
+                <li> Name: {{ profile.name }} </li>
+                <li> Surname: {{ profile.surname }} </li>
+                <li> Email: {{ profile.email }} </li>
+                <li> Address: {{ profile.street }} {{ profile.post_code }} {{ profile.city }} {{ profile.country }}</li>
+                <li> Email: {{ profile.email }} </li>
+                <li> Phone number: {{ profile.phone_number }}</li>
+                <li> Birth date: {{ profile.birth_date }}</li>
+            </ul>
+            <button id="profile-books-button" class="btn-secondary btn-block">Borrowed Books
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-container">
-                <p> Book1 </p>
-                <p> Book2 </p>
-                <p> Book3 </p>
-            </div>
-            <button class="dropdown-btn">Wish list
+            <ul id="profile-books-list">
+                <li> Book1 </li>
+                <li> Book2 </li>
+                <li> Book3 </li>
+            </ul>
+            <button id="profile-wish-button" class="btn-secondary btn-block">Wish list
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-container">
-                <p> Book1 </p>
-                <p> Book2 </p>
-                <p> Book3 </p>
-            </div>
-            <button class="dropdown-btn">Settings
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-container">
-                <p> or statistics</p>
-                <p> delete if useless</p>
-            </div>
+            <ul id="profile-wish-list">
+                <li> Book1 </li>
+                <li> Book2 </li>
+                <li> Book3 </li>
+            </ul>
         </div>
     </div>
 
-<script>
-    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-    var dropdown = document.getElementsByClassName("dropdown-btn");
-    var i;
-
-    for (i = 0; i < dropdown.length; i++) {
-      dropdown[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var dropdownContent = this.nextElementSibling;
-      if (dropdownContent.style.display === "block") {
-      dropdownContent.style.display = "none";
-      } else {
-      dropdownContent.style.display = "block";
-      }
-      });
-    }
-</script>
+    <script>
+    $("#profile-info-button").click(function () {
+        $("#profile-info-list").toggle(1000);
+    });
+    $("#profile-books-button").click(function () {
+        $("#profile-books-list").toggle(1000);
+    });
+    $("#profile-wish-button").click(function () {
+        $("#profile-wish-list").toggle(1000);
+    });
+    </script>
 
 {% endblock main %}

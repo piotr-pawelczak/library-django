@@ -21,35 +21,27 @@
 }
 
 .profile-menu{
-    height: 80%;
     background-color: #111;
     overflow-x: hidden;
-    padding-top: 20px;
     border: 1px solid #eeeeee;
     border-radius: 10px;
     margin: auto
 }
 
-.profile-menu .dropdown-btn, .profile-menu p {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #818181;
-    display: block;
-    border: none;
-    background: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    outline: none;
-}
-
-.profile-menu .dropdown-btn:hover, .profile-menu p {
-    color: #f1f1f1;
-}
-
-.dropdown-container {
+.profile-menu ul{
+    list-style-type: none;
     display: none;
-    background-color: #262626;
-    padding-left: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-menu ul li{
+    display: block;
+    color: #eeeeee;
+    text-align: center;
+    overflow: hidden;
+}
+
+.profile-menu button{
+    cursor: pointer;
 }
