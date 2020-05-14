@@ -37,7 +37,7 @@
             </div>
             <div class="news-container">
                 <div class="news-info">
-                    <span>Published by <a href="{% url 'author-detail' article.author.id %}">{{ article.author.user.username }}</a> on {{ article.date_posted|date:"D d M Y" }}</span>
+                    <span>Published by <a href="{% url 'author-detail' article.author.id %}">{{ article.author.user.username }}</a> on {{ article.date_posted|date:"D d.m.y" }} {{ article.date_posted|time:"H:i" }}</span>
                 </div>
                 <h1 class="news-title"><a href="{% url 'article-detail' article.id %}">{{ article.title }}</a></h1>
 

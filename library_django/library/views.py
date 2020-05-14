@@ -10,15 +10,13 @@ from users.models import Profile
 class ArticleListView(ListView):
     template_name = 'library/home.html'
     context_object_name = 'articles'
-    # model = Article
-    # ordering = ['-date_posted'] don't know why it doesn't work
-    queryset = Article.objects.order_by('-date_posted')
+    model = Article
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(ArticleListView, self).get_context_data(**kwargs)
         articles = []
 
-        for article in Article.objects.all():
+        for article in Article.objects.order_by('-date_posted'):
             content = article.content
             if len(content) > 500:
                 content = article.content[0:500] + "..."
