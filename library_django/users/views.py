@@ -7,7 +7,7 @@ from .models import Profile
 
 def register(response):
     if response.method == "POST":
-        form = RegisterForm(response.POST)
+        form = RegisterForm(response.POST, response.FILES)
         if form.is_valid():
             user = form.save()
             user.refresh_from_db()
@@ -27,10 +27,6 @@ def register(response):
             user.profile.email = form.cleaned_data.get('email')
             user.save()
             messages.success(response, 'User successfully registered')
-            # username = form.cleaned_data.get('username')
-            # password = form.cleaned_data.get('password1')
-            # user = authenticate(username=username, password=password)
-            # login(response, user)
             return redirect('../login/')
     else:
         form = RegisterForm()
