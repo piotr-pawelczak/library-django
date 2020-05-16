@@ -69,10 +69,6 @@ class AuthorDetailView(DetailView):
     model = Profile
 
 
-def books(request):
-    return render(request, 'library/books.html')
-
-
 def about(request):
     return render(request, 'library/about.html')
 

@@ -57,6 +57,8 @@
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
                         {% if user.is_staff %}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'new-book' %}">
+                                Add Book<i class="fas fa-book-medical ml-1"></i>
                             <li class="nav-item"><a class="nav-link" href="{% url 'new-article' %}">
                                 Add Statement<i class="fa fa-plus ml-1" aria-hidden="true"></i>
                         </a></li>

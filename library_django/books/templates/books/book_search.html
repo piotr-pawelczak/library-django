@@ -1,0 +1,59 @@
+{% extends "library/base.html" %}
+{% load static %}
+
+{% block main %}
+
+    <form method="GET" action="" class="form-inline">
+        <fieldset>
+            <legend>Search book:</legend>
+            <input type="text" id="book" class="form-control" value="{{ request.GET.q }}" name="q"/>
+            <input type="submit" class="btn btn-default" value="search"/>
+        </fieldset>
+    </form>
+    {% if request.GET.q %}
+        {% if not books %}
+            <div class="alert alert-info mt-4">
+              <strong>No results found</strong>
+            </div>
+        {% endif %}
+    {% endif %}
+    {% for book, num_of_copies in books %}
+        <article class="news-card col-12">
+            <div class="news-img">
+                <img src="{{ book.image.url }}" alt="book image">
+            </div>
+            <div class="mb-3">
+                {% if user.is_staff%}
+                    <a class="btn btn-lg btn-outline-secondary mt-2 mr-4" href="{% url 'book-update' book.id %}" role="button">Update</a>
+                    <a class="btn btn-lg btn-outline-danger mt-2 mr-4" href="{% url 'book-delete' book.id %}" role="button">Delete</a>
+                {% endif %}
+                {% if book.is_available %}
+                    <a class="btn btn-lg btn-outline-success mt-2 mr-4" href="#" role="button">Borrow book</a>
+                    <a class="btn btn-lg btn-outline-secondary mt-2" href="#" role="button">Add to wish list</a>
+                {% else %}
+                    <a class="btn btn-lg btn-outline-secondary mt-2 mr-4" href="#" role="button" disabled>Borrow book</a>
+                    <a class="btn btn-lg btn-outline-success mt-2" href="#" role="button">Add to wish list</a>
+                {% endif %}
+            </div>
+            <div class="news-container">
+                <h1 class="news-title">{{ book.author }} - {{ book.title }}</h1>
+
+                <p class="news-content"> Edition: {{ book.edition }} Imprint: {{ book.publisher }}</p>
+                <p class="news-content"> Published: {{ book.year }} Genre: {{ book.genre }}</p>
+                <div class="news-info">
+                    <span>Number of copies available: {{ num_of_copies }}</span>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+        </article>
+    {% endfor %}
+
+    <script src="{% static 'library/js/scroll-out.js' %}"></script>
+    <script type="text/javascript">
+        ScrollOut({
+            targets: '.news-card',
+            once: true
+        })
+    </script>
+
+{% endblock main %}
