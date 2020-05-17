@@ -41,8 +41,7 @@ class BookListView(ListView):
     model = Book
     paginate_by = 4
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super(BookListView, self).get_context_data(**kwargs)
+    def get_queryset(self):
         query = self.request.GET.get("q")
         same_books = {}
         books = []
@@ -66,5 +65,5 @@ class BookListView(ListView):
                         num_of_copies_available += 1
                 books.append((same_books[counter].first(), num_of_copies_available))
 
-        return {'books': books}
+        return books
 
