@@ -35,27 +35,36 @@ class BookDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     success_url = '/books/'
 
 
-# list view ?
-def books(request):
-    # copies = Book.objects.filter(is_available=True).count()
-    query = request.GET.get("q")
-    found_books = []
-    same_books = {}
-    books = []
+class BookListView(ListView):
+    template_name = 'books/book_search.html'
+    context_object_name = 'books'
+    model = Book
+    paginate_by = 4
 
-    if query:
-        found_books = Book.objects.filter(Q(title__icontains=query) | Q(author__icontains=query))
-        for counter, book in enumerate(found_books):
-            stop = False
-            for key in same_books:
-                if book in same_books[key]:
-                    stop = True
-                    break
-            if stop:
-                continue
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(BookListView, self).get_context_data(**kwargs)
+        query = self.request.GET.get("q")
+        same_books = {}
+        books = []
 
-            same_books[counter] = Book.objects.filter(Q(title__exact=book.title) & Q(author__exact=book.author) &
-                                                      Q(publisher__exact=book.publisher))
-            books.append((same_books[counter].first(), len(same_books[counter])))
+        if query:
+            found_books = Book.objects.filter(Q(title__icontains=query) | Q(author__icontains=query))
+            for counter, book in enumerate(found_books):
+                stop = False
+                for key in same_books:
+                    if book in same_books[key]:
+                        stop = True
+                        break
+                if stop:
+                    continue
 
-    return render(request, 'books/book_search.html', {'books': books})
+                same_books[counter] = Book.objects.filter(Q(title__exact=book.title) & Q(author__exact=book.author) &
+                                                          Q(publisher__exact=book.publisher) & Q(edition__exact=book.edition))
+                num_of_copies_available = 0
+                for elem in same_books[counter]:
+                    if elem.is_available:
+                        num_of_copies_available += 1
+                books.append((same_books[counter].first(), num_of_copies_available))
+
+        return {'books': books}
+
