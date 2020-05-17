@@ -17,6 +17,7 @@
             </div>
         {% endif %}
     {% endif %}
+
     {% for book, num_of_copies in books %}
         <article class="news-card col-12">
             <div class="news-img">
@@ -27,12 +28,14 @@
                     <a class="btn btn-lg btn-outline-secondary mt-2 mr-4" href="{% url 'book-update' book.id %}" role="button">Update</a>
                     <a class="btn btn-lg btn-outline-danger mt-2 mr-4" href="{% url 'book-delete' book.id %}" role="button">Delete</a>
                 {% endif %}
-                {% if book.is_available %}
-                    <a class="btn btn-lg btn-outline-success mt-2 mr-4" href="#" role="button">Borrow book</a>
-                    <a class="btn btn-lg btn-outline-secondary mt-2" href="#" role="button">Add to wish list</a>
-                {% else %}
-                    <a class="btn btn-lg btn-outline-secondary mt-2 mr-4" href="#" role="button" disabled>Borrow book</a>
-                    <a class="btn btn-lg btn-outline-success mt-2" href="#" role="button">Add to wish list</a>
+                {% if user.is_authenticated %}
+                    {% if book.is_available %}
+                        <a class="btn btn-lg btn-outline-success mt-2 mr-4" href="#" role="button">Borrow book</a>
+                        <a class="btn btn-lg btn-outline-secondary mt-2" href="#" role="button">Add to wish list</a>
+                    {% else %}
+                        <a class="btn btn-lg btn-outline-secondary mt-2 mr-4" href="#" role="button" disabled>Borrow book</a>
+                        <a class="btn btn-lg btn-outline-success mt-2" href="#" role="button">Add to wish list</a>
+                    {% endif %}
                 {% endif %}
             </div>
             <div class="news-container">
