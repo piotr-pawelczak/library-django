@@ -29,7 +29,7 @@
                     {% endif %}
                     {% if user.is_authenticated %}
                         {% if book.is_available %}
-                            <a class="btn btn-lg btn-outline-success mt-2 mr-4" href="#" role="button">Borrow book</a>
+                            <a class="btn btn-lg btn-outline-success mt-2 mr-4" href=" {% url 'book-borrow' book.id %}" role="button">Borrow book</a>
                             <a class="btn btn-lg btn-outline-secondary mt-2" href="#" role="button">Add to wish list</a>
                         {% else %}
                             <button class="btn btn-lg btn-outline-secondary mt-2 mr-4" disabled>Borrow book</button>
