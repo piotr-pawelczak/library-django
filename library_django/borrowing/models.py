@@ -14,4 +14,4 @@ class Borrowing(models.Model):
         return f'"{self.book.title}" borrowed by {self.user.username} on {self.date_borrowed}'
 
     def get_absolute_url(self):
-        return reverse('library-books')
+        return reverse('borrowing-detail', args=[self.id])
