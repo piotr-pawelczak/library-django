@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block main %}
-    <div class="alert alert-info form-message">
-        You borrowed book {{ borrowing.book.title }}
-        You can now collect it in our library on Wall Street 14 between 8 a.m and 4 p.m.
-        Replace this with form messages ( bcs now it is always displayed )
-    </div>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} form-message mt-2">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
 
     <p> Borrowed book: #TO DO</p>
     <p> Borrowed on: #TO DO</p>
