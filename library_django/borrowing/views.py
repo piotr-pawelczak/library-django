@@ -20,7 +20,6 @@ class BorrowingCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         form.instance.book = Book.objects.get(pk=book_id)
         form.instance.book.is_available = False
         form.instance.book.save()
-        # why it does not save ??
         return super().form_valid(form)
 
 

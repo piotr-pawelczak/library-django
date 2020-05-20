@@ -8,7 +8,7 @@
         {% csrf_token %}
         {{ form|crispy }}
         <div style="text-align: center;" class="my-4">
-            <input class="btn btn-danger btn-lg mr-4" type="submit" value="Borrow">
+            <input class="btn btn-success btn-lg mr-4" type="submit" value="Borrow">
             <a class="btn btn-dark btn-lg" href="{% url 'library-books' %}" role="button">Cancel</a>
         </div>
     </form>

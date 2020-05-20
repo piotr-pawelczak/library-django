@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .forms import RegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 from .models import Profile
+from borrowing.models import Borrowing
 
 
 def register(response):
@@ -54,9 +55,11 @@ def profile(request):
         profile_update_form = ProfileUpdateForm(instance=request.user.profile)
 
     profile = Profile.objects.filter(user=request.user).first()
+    borrowings = Borrowing.objects.filter(user=profile.user)
     context = {'user_update_form': user_update_form,
                'profile_update_form': profile_update_form,
-               'profile': profile}
+               'profile': profile,
+               'borrowings': borrowings}
 
     return render(request, 'users/profile.html', context)
 

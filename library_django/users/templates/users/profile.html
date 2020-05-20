@@ -62,9 +62,11 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <ul id="profile-books-list">
-                <li> Book1 </li>
-                <li> Book2 </li>
-                <li> Book3 </li>
+                {% for borrowing in borrowings %}
+                    <li>
+                        <a href="{% url 'borrowing-detail' borrowing.id %}"> {{ borrowing.book.author }} - "{{ borrowing.book.title }}" </a>
+                    </li>
+                {% endfor %}
             </ul>
             <button id="profile-wish-button" class="btn-secondary btn-block">Wish list
                 <i class="fa fa-caret-down"></i>

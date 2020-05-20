@@ -8,8 +8,30 @@
         {% endfor %}
     {% endif %}
 
-    <p> Borrowed book: #TO DO</p>
-    <p> Borrowed on: #TO DO</p>
-    <p> Return to: #TO DO</p>
+    <article class="news-card col-12">
+        <div class="news-img">
+            <img src="{{ borrowing.book.image.url }}" alt="book image">
+        </div>
+        <div class="news-container">
+            <h1 class="news-title">Borrowings details</h1>
+            <p class="news-content"> Title: {{ borrowing.book.title }}</p>
+            <p class="news-content"> Author: {{ borrowing.book.author }}</p>
+            <p class="news-content"> Edition: {{ borrowing.book.edition }}</p>
+            <p class="news-content"> Year: {{ borrowing.book.year }}</p>
+            <p class="news-content"> Imprint: {{ borrowing.book.publisher }}</p>
+            <p class="news-content"> Genre: {{ borrowing.book.genre }}</p>
+        </div>
+        <div style="clear: both;"></div>
+    </article>
+    <p class="news-content"> Borrowed on: {{ borrowing.date_borrowed }}</p>
+    <p class="news-content"> Return to : {{ borrowing.date_return }} ({{ borrowing.date_return|timeuntil }})</p>
+
+    <script src="{% static 'library/js/scroll-out.js' %}"></script>
+    <script type="text/javascript">
+        ScrollOut({
+            targets: '.news-card',
+            once: true
+        })
+    </script>
 
 {% endblock main %}
