@@ -1,9 +1,25 @@
 {% extends "library/base.html" %}
 
 {% block main %}
-    <p>Main home</p>
-{% endblock main %}
+<div id="map">
 
-{% block side %}
-    <p>Side home</p>
-{% endblock side %}
+<script>
+    function initMap() {
+        var location = {lat: 50.065647, lng: 19.921512};
+        var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 18,
+            center: location
+        });
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+    }
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDamqHf-3RPkq2Clc9D-dd6nd8q-D5S1lk&callback=initMap" type="text/javascript">
+
+</script>
+
+</div>
+{% endblock main %}

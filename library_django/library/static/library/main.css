@@ -180,3 +180,8 @@ main {
         transform: rotate(45deg) translate(20px, 20px);
     }
 }
+
+#map{
+    height: 500px;
+    width: 100%;
+}
